@@ -238,7 +238,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button27"
+        android:id="@+id/btnZ"
         android:layout_width="62dp"
         android:layout_height="55dp"
         android:text="Z"
