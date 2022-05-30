@@ -17,8 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> studentList = new ArrayList<String>();
     ListView listView;
-    Button btn;
+    Button btnAdd, btnConfirm;
     EditText editText;
+    TextView selectedItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,22 +29,44 @@ public class MainActivity extends AppCompatActivity {
         studentList.add("Zahid");
         studentList.add("Saeed");
         studentList.add("Zainab");
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1, studentList);
-        listView = findViewById(R.id.lv);
+        listView = findViewById(R.id.listView);
         listView.setAdapter(arrayAdapter);
 
-        btn = findViewById(R.id.button);
         editText = findViewById(R.id.editText);
+        btnAdd = findViewById(R.id.btnAdd);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                studentList.add(editText.getText().toString());
-                arrayAdapter.notifyDataSetChanged();
+                boolean found = false;
+                for (String i: studentList
+                     ) {
+                    if(i.equals(editText.getText().toString())){
+                        found = true;
+                    }
+                }
+                if(!found) {
+                    studentList.add(editText.getText().toString());
+                    arrayAdapter.notifyDataSetChanged();
+                }
             }
         });
 
-        
+        selectedItem = findViewById(R.id.selectedItem);
+        btnConfirm = findViewById(R.id.btnConfirm);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedItem.setText("You selected: " + studentList.get(position));
+                btnConfirm.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
+
     }
 }

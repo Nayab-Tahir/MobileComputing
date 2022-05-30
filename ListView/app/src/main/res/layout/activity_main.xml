@@ -7,37 +7,73 @@
     tools:context=".MainActivity">
 
     <ListView
-        android:id="@+id/lv"
-        android:layout_width="379dp"
-        android:layout_height="477dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/listView"
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Add"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.0" />
+
     <EditText
         android:id="@+id/editText"
-        android:layout_width="289dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="229dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+    <TextView
+        android:id="@+id/selectedItem"
+        android:layout_width="262dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="48dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listView" />
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="318dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="36dp"
+        android:text="Add Name or Select from Given:"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Confirm"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/selectedItem"
+        app:layout_constraintStart_toStartOf="@+id/selectedItem"
+        app:layout_constraintTop_toBottomOf="@+id/selectedItem" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
