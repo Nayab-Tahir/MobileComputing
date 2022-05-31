@@ -49,8 +49,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 if(!found) {
-                    studentList.add(editText.getText().toString());
-                    arrayAdapter.notifyDataSetChanged();
+
+                    if(studentList.size() == 7){
+                        studentList.remove(0);
+                    }
+                        studentList.add(editText.getText().toString());
+                        arrayAdapter.notifyDataSetChanged();
                 }
             }
         });
