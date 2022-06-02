@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="230dp">
+
+    <ImageView
+        android:id="@+id/mcqImage"
+        android:layout_width="130dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <RadioButton
+        android:id="@+id/opt1"
+        android:layout_width="68dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:checked="false"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mcqImage" />
+
+    <RadioButton
+        android:id="@+id/opt2"
+        android:layout_width="68dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/opt1"
+        app:layout_constraintTop_toTopOf="@+id/opt1"
+        tools:ignore="UsingOnClickInXml" />
+
+    <RadioButton
+        android:id="@+id/opt3"
+        android:layout_width="68dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/opt2"
+        app:layout_constraintTop_toTopOf="@+id/opt2" />
+
+    <RadioButton
+        android:id="@+id/opt4"
+        android:layout_width="68dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/opt3"
+        app:layout_constraintTop_toTopOf="@+id/opt3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

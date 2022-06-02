@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningApp">
         <activity
+            android:name=".TestResult"
+            android:exported="false" />
+        <activity
+            android:name=".TestHomeActivity2"
+            android:exported="false" />
+        <activity
             android:name=".LetterImage"
             android:exported="false" />
         <activity
