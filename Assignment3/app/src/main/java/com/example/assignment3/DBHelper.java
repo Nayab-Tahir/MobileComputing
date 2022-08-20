@@ -64,6 +64,24 @@ public class DBHelper extends SQLiteOpenHelper {
             } while (cursorCourses.moveToNext());
         }
         cursorCourses.close();
+        db.close();
         return studentArrayList;
+    }
+
+    public void deleteStudent(StudentModel STUDENTModel){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(STUDENT_TABLE, STUDENT_NAME + "=? and " + STUDENT_ROLL + "=? and " + STUDENT_ENROLL + "=?",
+                new String[] {STUDENTModel.getName(), String.valueOf(STUDENTModel.getRollNmber()), String.valueOf(STUDENTModel.isEnroll()? 1:0) });
+        db.close();
+    }
+
+    public void updateStudent(StudentModel STUDENTModel){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(STUDENT_ROLL, STUDENTModel.getRollNmber());
+        cv.put(STUDENT_ENROLL, STUDENTModel.isEnroll());
+        db.update(STUDENT_TABLE, cv, STUDENT_NAME + "=?", new String[] {STUDENTModel.getName()});
+        db.close();
     }
 }

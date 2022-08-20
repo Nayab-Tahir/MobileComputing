@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonAdd, buttonViewAll;
+    Button buttonAdd, buttonViewAll, buttonDelete, buttonUpdate;
     EditText editName, editRollNumber;
     Switch switchIsActive;
     ListView listViewStudent;
@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         buttonAdd = findViewById(R.id.buttonAdd);
         buttonViewAll = findViewById(R.id.buttonViewAll);
+        buttonDelete = findViewById(R.id.buttonDelete);
+        buttonUpdate = findViewById(R.id.buttonUpdate);
         editName = findViewById(R.id.editTextName);
         editRollNumber = findViewById(R.id.editTextRollNumber);
         switchIsActive = findViewById(R.id.switchStudent);
@@ -60,5 +62,41 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            StudentModel studentModel;
+
+            @Override
+            public void onClick(View v) {
+                try {
+                    studentModel = new StudentModel(editName.getText().toString(), Integer.parseInt(editRollNumber.getText().toString()), switchIsActive.isChecked());
+                    //Toast.makeText(MainActivity.this, studentModel.toString(), Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+                DBHelper dbHelper = new DBHelper(MainActivity.this);
+                dbHelper.deleteStudent(studentModel);
+            }
+        });
+
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
+            StudentModel studentModel;
+
+            @Override
+            public void onClick(View v) {
+                try {
+                    studentModel = new StudentModel(editName.getText().toString(), Integer.parseInt(editRollNumber.getText().toString()), switchIsActive.isChecked());
+                    //Toast.makeText(MainActivity.this, studentModel.toString(), Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+                DBHelper dbHelper  = new DBHelper(MainActivity.this);
+                dbHelper.updateStudent(studentModel);
+            }
+        });
+
+
     }
 }
