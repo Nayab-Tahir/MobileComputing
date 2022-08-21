@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,15 +51,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonViewAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DBHelper dbHelper = new DBHelper(MainActivity.this);
-                List<StudentModel> list = dbHelper.getAllStudents();
-                ArrayAdapter arrayAdapter = new ArrayAdapter<StudentModel>
-                        (MainActivity.this, android.R.layout.simple_list_item_1,list);
-                listViewStudent.setAdapter(arrayAdapter);
+        buttonViewAll.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View v){
+                DBHelper dbHelper = new DBHelper(MainActivity.this);
+                ArrayList<StudentModel> list = dbHelper.getAllStudents();
+
+                ArrayAdapter<StudentModel> arrayAdapter = new StudentAdapter(MainActivity.this, list);
+                listViewStudent.setAdapter(arrayAdapter);
             }
         });
 

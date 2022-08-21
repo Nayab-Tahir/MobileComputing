@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         studentArrayList.add(new Student("Saad", "Beta", "2", R.drawable.b));
 
         ArrayAdapter<Student> adapter = new StudentAdapter(this, studentArrayList);
-        studentsListView = findViewById(R.id.studentsListView);
         studentsListView.setAdapter(adapter);
 
     }
